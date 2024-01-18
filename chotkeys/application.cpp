@@ -38,8 +38,8 @@ void Application::setupShortcuts()
     m_hotKeys->registerKey(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_Delete));
     m_hotKeys->registerKey(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_A));
     m_hotKeys->registerKey(QKeySequence(Qt::META + Qt::Key_L));
-    //m_hotKeys->registerKey(QKeySequence(Qt::META + Qt::Key_6));
-    m_hotKeys->registerKey(647);
+    m_hotKeys->registerKey(QKeySequence(Qt::META + Qt::Key_Space));
+    //m_hotKeys->registerKey(647);
 }
 
 void Application::onPressed(QKeySequence keySeq)
@@ -57,7 +57,12 @@ void Application::onPressed(QKeySequence keySeq)
         QProcess::startDetached("cutefish-screenshot", QStringList());
     }
 
-    if (keySeq.toString() == "Ʇ") {
+    if (keySeq.toString() == "Meta+Space") {
         QProcess::startDetached("cutefish-launcher", QStringList());
     }
+}
+
+void Application::onReleased(QKeySequence keySeq)
+{
+
 }
